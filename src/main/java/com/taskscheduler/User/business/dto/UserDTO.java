@@ -19,12 +19,11 @@ import java.util.List;
 @Builder
 public class UserDTO {
 
-    private Long id;
     private String name;
     private String email;
     private String password;
 
-    private List<AddressDTO> addressesDto;
+    private List<AddressDTO> addresses;
 
-    private List<PhoneDTO> phonesDto;
+    private List<PhoneDTO> phones;
 }
