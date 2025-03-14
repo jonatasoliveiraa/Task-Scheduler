@@ -1,6 +1,7 @@
 package com.taskscheduler.TaskScheduler.business.mapper;
 
 import com.taskscheduler.TaskScheduler.business.dto.TaskDTO;
+import com.taskscheduler.TaskScheduler.business.dto.UserDTO;
 import com.taskscheduler.TaskScheduler.infrastructure.entity.TaskEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -22,5 +23,9 @@ public interface TaskConverter {
 
     List<TaskDTO> toListTaskDTO(List<TaskEntity> taskEntity);
 
+//    TaskEntity updateTask(TaskDTO taskDTO, TaskEntity taskEntity);
+//
+//    @Mapping(source = "status", target = "status")
+//    TaskEntity updateStatus(TaskDTO taskDTO, TaskEntity taskEntity);
 
 }
