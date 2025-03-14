@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -29,5 +30,16 @@ public class TaskService {
         TaskEntity entity = taskConverter.toTaskEntity(taskDTO);
 
         return taskConverter.toTaskDTO(taskRepository.save(entity));
+    }
+
+    public List<TaskDTO> findByEventDate(LocalDateTime initialDate, LocalDateTime finalDate){
+        return taskConverter.toListTaskDTO(taskRepository.findByEventDateBetween(initialDate,finalDate));
+    }
+
+    public List<TaskDTO> findByEmail(String token){
+
+        String email = jwtUtil.extractUsername(token.substring(7));
+
+        return taskConverter.toListTaskDTO(taskRepository.findByUserEmail(email));
     }
 }
